@@ -36,3 +36,24 @@ func (t *BinarySearchTreeNode) Search(k int) bool {
 	}
 	return true
 }
+
+func (t *BinarySearchTreeNode) Remove(k int) bool {
+	if t == nil {
+		return false
+	}
+
+	if t.Data < k {
+		if t.Right != nil && t.Right.Data == k {
+			t.Right = nil
+			return true
+		}
+		return t.Right.Remove(k)
+	} else if t.Data > k {
+		if t.Left != nil && t.Left.Data == k {
+			t.Left = nil
+			return true
+		}
+		return t.Left.Remove(k)
+	}
+	return false
+}

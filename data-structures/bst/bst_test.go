@@ -3,6 +3,8 @@ package bst
 import (
 	"fmt"
 	"testing"
+
+	"github.com/stretchr/testify/assert"
 )
 
 func TestBinarySearchTree(t *testing.T) {
@@ -13,11 +15,11 @@ func TestBinarySearchTree(t *testing.T) {
 	}
 	fmt.Println(tree)
 
-	if tree.Search(25) != false {
-		t.Errorf("expected false")
-	}
+	// search
+	assert.False(t, tree.Search(25))
+	assert.True(t, tree.Search(50))
 
-	if tree.Search(50) != true {
-		t.Errorf("expected true")
-	}
+	// remove
+	assert.True(t, tree.Remove(50))
+	assert.False(t, tree.Remove(25))
 }

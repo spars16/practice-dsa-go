@@ -1,8 +1,10 @@
 package trie
 
+const numAlphabet int = 26
+
 type (
 	Node struct {
-		children [26]*Node
+		children [numAlphabet]*Node
 		isEnd    bool
 	}
 
