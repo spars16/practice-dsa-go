@@ -1,12 +1,10 @@
-package bst
+package binarysearchtree
 
-type (
-	BinarySearchTreeNode struct {
-		Data  int
-		Left  *BinarySearchTreeNode
-		Right *BinarySearchTreeNode
-	}
-)
+type BinarySearchTreeNode struct {
+	Data  int
+	Left  *BinarySearchTreeNode
+	Right *BinarySearchTreeNode
+}
 
 func (t *BinarySearchTreeNode) Insert(k int) {
 	if t.Data < k {

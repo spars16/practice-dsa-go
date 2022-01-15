@@ -1,4 +1,4 @@
-package sort
+package sorting
 
 type (
 	Person struct {
