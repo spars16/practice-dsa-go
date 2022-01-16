@@ -1,6 +1,8 @@
 package binarysearch
 
 import (
+	"sort"
+	"strings"
 	"testing"
 
 	"github.com/stretchr/testify/assert"
@@ -28,7 +30,27 @@ func TestBinarySearch(t *testing.T) {
 	}
 
 	for _, tt := range tests {
-		assert.Equal(t, BinarySearch(tt.input, tt.target), tt.expected)
+		assert.Equal(t, tt.expected, BinarySearch(tt.input, tt.target))
+	}
+}
+
+func TestBinarySearchSort(t *testing.T) {
+	tests := []struct {
+		name     string
+		input    []int
+		target   int
+		expected int
+	}{
+		{
+			name:     "valid - simple sorted",
+			input:    []int{1, 3, 6, 10, 15, 21, 28, 36, 45, 55},
+			target:   6,
+			expected: 2,
+		},
+	}
+
+	for _, tt := range tests {
+		assert.Equal(t, tt.expected, BinarySearchSort(tt.input, tt.target))
 	}
 }
 
@@ -60,6 +82,8 @@ func TestBinarySearchString(t *testing.T) {
 	}
 
 	for _, tt := range tests {
-		assert.Equal(t, BinarySearchString(tt.input, tt.target), tt.expected)
+		inp := strings.Split(tt.input, "")
+		sort.Strings(inp)
+		// assert.Equal(t, tt.expected, BinarySearchString(strings.Join(inp, ""), tt.target))
 	}
 }
