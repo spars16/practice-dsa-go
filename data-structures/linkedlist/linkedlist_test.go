@@ -1,32 +1,54 @@
 package linkedlist
 
-import "testing"
+import (
+	"testing"
+
+	"github.com/stretchr/testify/assert"
+)
 
 func TestLinkedList(t *testing.T) {
 	tests := []struct {
-		name          string
-		input         []int
-		expectedSize  int
-		expectedValue int
+		name         string
+		prepend      []int
+		append       []int
+		remove       []int
+		expectedArr  []int
+		expectedSize int
 	}{
 		{
-			name:          "happy path - prepend",
-			input:         []int{1, 2, 3, 4},
-			expectedSize:  4,
-			expectedValue: 4,
+			name:         "happy path - prepend",
+			prepend:      []int{1, 2, 3, 4},
+			expectedArr:  []int{4, 3, 2, 1},
+			expectedSize: 4,
+		},
+		{
+			name:         "happy path - append",
+			append:       []int{1, 2, 2, 4, 3},
+			expectedArr:  []int{1, 2, 2, 4, 3},
+			expectedSize: 5,
+		},
+		{
+			name:         "happy path - mixed",
+			prepend:      []int{5, 6, 2},
+			append:       []int{1, 2, 3, 4},
+			remove:       []int{2, 5},
+			expectedArr:  []int{6, 1, 2, 3, 4},
+			expectedSize: 5,
 		},
 	}
 
 	for _, tt := range tests {
 		list := Init()
-		for _, input := range tt.input {
-			list.Prepend(input)
+		for _, p := range tt.prepend {
+			list.Prepend(p)
 		}
-		if tt.expectedSize != list.size {
-			t.Errorf("got %d, want %d", list.size, tt.expectedSize)
+		for _, a := range tt.append {
+			list.Append(a)
 		}
-		if tt.expectedValue != list.head.next.data {
-			t.Errorf("got %d, want %d", list.head.next.data, tt.expectedValue)
+		for _, r := range tt.remove {
+			list.Remove(r)
 		}
+		assert.Equal(t, tt.expectedSize, list.size)
+		assert.Equal(t, tt.expectedArr, list.ToArray())
 	}
 }

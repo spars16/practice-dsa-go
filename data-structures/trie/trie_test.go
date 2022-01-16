@@ -2,6 +2,8 @@ package trie
 
 import (
 	"testing"
+
+	"github.com/stretchr/testify/assert"
 )
 
 func TestTrie(t *testing.T) {
@@ -20,11 +22,6 @@ func TestTrie(t *testing.T) {
 	}
 	// fmt.Println(trie.root)
 
-	if trie.Search("wizard") != false {
-		t.Error("expected false")
-	}
-
-	if trie.Search("dash") != true {
-		t.Error("expected true")
-	}
+	assert.False(t, trie.Search("wizard"))
+	assert.True(t, trie.Search("dash"))
 }

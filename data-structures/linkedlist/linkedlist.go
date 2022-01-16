@@ -1,6 +1,7 @@
 package linkedlist
 
 type (
+	// Doubly Linked List struct implementation
 	LinkedList struct {
 		head *node
 		tail *node
@@ -67,6 +68,8 @@ func (list *LinkedList) RemoveFirst() *node {
 	return nodeToRemove
 }
 
+// Remove the first occurrence of the passed in value
+// RETURN the node that was removed
 func (list *LinkedList) Remove(val int) *node {
 	curr := list.head.next
 	for curr != list.tail {
@@ -79,4 +82,14 @@ func (list *LinkedList) Remove(val int) *node {
 		curr = curr.next
 	}
 	return nil
+}
+
+func (list *LinkedList) ToArray() []int {
+	var arr []int
+	curr := list.head.next
+	for curr != list.tail {
+		arr = append(arr, curr.data)
+		curr = curr.next
+	}
+	return arr
 }
