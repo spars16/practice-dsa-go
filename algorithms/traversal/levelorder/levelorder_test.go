@@ -1,19 +1,24 @@
 package levelorder
 
 import (
-	"fmt"
 	"testing"
 )
 
 func TestLevelOrderTraversal(t *testing.T) {
-	n := node{Value: 100}
-	n.insert(150)
-	n.insert(50)
-	n.insert(25)
-	n.insert(75)
-	n.insert(30)
-	n.insert(80)
-	fmt.Println(n)
-
-	n.LevelOrderTraversal()
+	tests := []struct {
+		name  string
+		input []int
+	}{
+		{
+			name:  "happy path",
+			input: []int{150, 50, 200, 70, 55, 25},
+		},
+	}
+	for _, tt := range tests {
+		n := node{data: 100}
+		for _, val := range tt.input {
+			n.insert(val)
+		}
+		n.LevelOrderTraversal()
+	}
 }

@@ -19,7 +19,21 @@ func BinarySearch(arr []int, target int) int {
 			right = mid - 1
 		}
 	}
-	return -1
+	return -1 // Error
+}
+
+func BinarySearchRecursive(arr []int, target, low, high int) int {
+	if low > high {
+		return -1 // Error
+	}
+
+	mid := (low + high) / 2
+	if arr[mid] < target {
+		return BinarySearchRecursive(arr, target, mid+1, high)
+	} else if arr[mid] > target {
+		return BinarySearchRecursive(arr, target, low, mid-1)
+	}
+	return mid
 }
 
 func BinarySearchSort(arr []int, target int) int {

@@ -1,16 +1,23 @@
 package bfs
 
-// func (n *Node) BreadthFirstSearch(array []int) []int {
-// 	queue := []*Node{n}
+// type node struct {
+// 	data  int
+// 	left  *node
+// 	right *node
+// }
+
+// func (n *node) BreadthFirstSearch(array []int) []int {
+// 	queue := []*node{n}
+
 // 	for len(queue) > 0 {
 // 		current := queue[0]
 // 		queue := queue[1:]
-// 		array = append(array, current.Value)
-// 		if n.Left != nil {
-// 			queue = append(queue, n.Left)
+// 		array = append(array, current.data)
+// 		if n.left != nil {
+// 			queue = append(queue, n.left)
 // 		}
-// 		if n.Right != nil {
-// 			queue = append(queue, n.Right)
+// 		if n.right != nil {
+// 			queue = append(queue, n.right)
 // 		}
 // 	}
 // 	return array

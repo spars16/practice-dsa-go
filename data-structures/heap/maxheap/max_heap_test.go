@@ -1,4 +1,4 @@
-package heap
+package maxheap
 
 import (
 	"testing"
@@ -6,7 +6,7 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-func TestHeap(t *testing.T) {
+func TestMaxHeap(t *testing.T) {
 	tests := []struct {
 		name     string
 		input    []int

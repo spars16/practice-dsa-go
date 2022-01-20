@@ -1,4 +1,4 @@
-package heap
+package maxheap
 
 type MaxHeap struct {
 	arr  []int
@@ -16,9 +16,9 @@ func (h *MaxHeap) Extract() int {
 	if lastIndex < 0 {
 		return -1
 	}
-	h.swap(0, lastIndex)
-	removed := h.arr[lastIndex]
-	h.arr = h.arr[:lastIndex]
+	h.swap(0, lastIndex-1)
+	removed := h.arr[lastIndex-1]
+	h.arr = h.arr[:lastIndex-1]
 	h.size--
 	h.maxHeapifyDown(0)
 	return removed

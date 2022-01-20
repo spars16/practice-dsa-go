@@ -31,6 +31,7 @@ func TestBinarySearch(t *testing.T) {
 
 	for _, tt := range tests {
 		assert.Equal(t, tt.expected, BinarySearch(tt.input, tt.target))
+		assert.Equal(t, tt.expected, BinarySearchRecursive(tt.input, tt.target, 0, len(tt.input)-1))
 	}
 }
 
