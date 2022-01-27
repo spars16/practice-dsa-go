@@ -1,8 +1,10 @@
 package parenthesis
 
-import "testing"
+import (
+	"testing"
+)
 
-func TestValidParenthesis(t *testing.T) {
+func TestValidParentheses(t *testing.T) {
 	tests := []struct {
 		name     string
 		input    string

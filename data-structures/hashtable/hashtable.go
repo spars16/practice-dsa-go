@@ -69,7 +69,7 @@ func (h *HashTable) Print() {
 
 // insert
 func (b *bucket) insert(key string) {
-	// TDOO: if bucket already contains key, do not insert
+	// TODO: if bucket already contains key, do not insert
 	next := b.head.next
 	node := &bucketNode{key: key, next: next}
 	b.head.next = node

@@ -38,16 +38,22 @@ func (h *MaxHeap) maxHeapifyUp(index int) {
 
 // O(logn)
 func (h *MaxHeap) maxHeapifyDown(index int) {
-	if len(h.arr) <= index {
+	lastIndex := len(h.arr) - 1
+	if index > lastIndex {
 		return
 	}
 
-	if h.arr[left(index)] > h.arr[index] {
-		h.swap(left(index), index)
-		h.maxHeapifyDown(left(index))
-	} else if h.arr[right(index)] > h.arr[index] {
-		h.swap(right(index), h.arr[index])
-		h.maxHeapifyDown(right(index))
+	left, right := left(index), right(index)
+	childToCompare := 0
+	if right > lastIndex || h.arr[left] > h.arr[right] {
+		childToCompare = left
+	} else {
+		childToCompare = right
+	}
+
+	if h.arr[index] < h.arr[childToCompare] {
+		h.swap(childToCompare, index)
+		h.maxHeapifyDown(childToCompare)
 	}
 }
 

@@ -1,6 +1,7 @@
 package fillmerchants
 
 /*
+Bolt - 1st Round
 You have a sum of money to distribute among a number of merchant accounts. You need to distribute the money as evenly as possible. But some merchants have a maximum amount they can take. We only deal with dollar amounts, no decimals.
 
 Amount: $100 --> 90 --> 70

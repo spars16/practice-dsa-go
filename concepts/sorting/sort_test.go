@@ -27,6 +27,16 @@ func TestSortPersonByAge(t *testing.T) {
 	fmt.Println(people)
 }
 
+func TestSortPersonByName(t *testing.T) {
+	people := []Person{
+		{Name: "Sparsh", Age: 35},
+		{Name: "Cindy", Age: 23},
+		{Name: "Ananda", Age: 28},
+	}
+	fmt.Println(people)
+	fmt.Println(ByName(people))
+}
+
 func TestInbuiltSort(t *testing.T) {
 	// sort ints
 	inputInts := []int{413, 5663, 215, 125, 634, 243}

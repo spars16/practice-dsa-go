@@ -11,15 +11,19 @@ func (q *Queue) Enqueue(item int) {
 }
 
 func (q *Queue) Dequeue() int {
-	if len(q.items) > 0 {
-		item := q.items[0]
-		q.items = q.items[1:]
-		q.size--
-		return item
+	if q.IsEmpty() {
+		return -1
 	}
-	return -1
+	item := q.items[0]
+	q.items = q.items[1:]
+	q.size--
+	return item
 }
 
 func (q *Queue) Size() int {
 	return q.size
+}
+
+func (q *Queue) IsEmpty() bool {
+	return q.size == 0
 }
