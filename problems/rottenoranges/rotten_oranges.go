@@ -2,6 +2,7 @@ package rottenoranges
 
 /*
 Argo AI - 1st round
+Duo - 1st round
 */
 
 import "fmt"

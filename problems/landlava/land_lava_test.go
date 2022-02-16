@@ -28,7 +28,7 @@ func TestLandLava(t *testing.T) {
 		expected int
 	}{
 		{
-			name:     "valid",
+			name:     "valid - original",
 			input:    []int{0, 1, 2, 1, 2, 0, 1, 3},
 			expected: 4,
 		},
@@ -38,7 +38,7 @@ func TestLandLava(t *testing.T) {
 			expected: 14,
 		},
 		{
-			name:     "valid - close right wall",
+			name:     "valid - reverse original",
 			input:    []int{3, 1, 0, 2, 1, 2, 1, 0},
 			expected: 4,
 		},

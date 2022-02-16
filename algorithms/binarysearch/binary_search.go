@@ -6,14 +6,15 @@ import (
 )
 
 func BinarySearch(arr []int, target int) int {
-	left := 0
-	right := len(arr) - 1
+	left, right := 0, len(arr)-1
 
 	for left <= right {
-		mid := left + ((right - left) / 2)
+		mid := (left + right) / 2
 		if arr[mid] == target {
 			return mid
-		} else if arr[mid] < target {
+		}
+
+		if arr[mid] < target {
 			left = mid + 1
 		} else {
 			right = mid - 1
@@ -48,6 +49,20 @@ func BinarySearchSort(arr []int, target int) int {
 	return -1
 }
 
-func BinarySearchString(s string, target rune) int {
+func BinarySearchString(s string, target byte) int {
+	left, right := 0, len(s)-1
+
+	for left <= right {
+		mid := (left + right) / 2
+		if s[mid] == target {
+			return mid
+		}
+
+		if s[mid] < target {
+			left = mid + 1
+		} else if s[mid] > target {
+			right = mid - 1
+		}
+	}
 	return -1
 }

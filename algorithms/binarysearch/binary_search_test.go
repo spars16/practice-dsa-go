@@ -59,7 +59,7 @@ func TestBinarySearchString(t *testing.T) {
 	tests := []struct {
 		name     string
 		input    string
-		target   rune
+		target   byte
 		expected int
 	}{
 		{
@@ -72,7 +72,7 @@ func TestBinarySearchString(t *testing.T) {
 			name:     "valid - complex",
 			input:    "jfksdaLJAf",
 			target:   'L',
-			expected: 6,
+			expected: 2,
 		},
 		{
 			name:     "invalid - simple sorted",
@@ -85,6 +85,6 @@ func TestBinarySearchString(t *testing.T) {
 	for _, tt := range tests {
 		inp := strings.Split(tt.input, "")
 		sort.Strings(inp)
-		// assert.Equal(t, tt.expected, BinarySearchString(strings.Join(inp, ""), tt.target))
+		assert.Equal(t, tt.expected, BinarySearchString(strings.Join(inp, ""), tt.target))
 	}
 }
